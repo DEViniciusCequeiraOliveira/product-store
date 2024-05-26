@@ -44,9 +44,9 @@ export class CreateComponent {
   onSubmit() {
     this.productService.post({
       title: this.form.controls.title.value,
-      price: 13.5,
-      description: 'descrição do produto',
-      image: 'https://i.ibb.co/cvpntL1/hats.png'
+      price: this.form.controls.price.value,
+      description: this.form.controls.description.value,
+      image: this.form.controls.image.value
     }).subscribe((e) => {
       alert('Cadastrado com sucesso!');
     });
