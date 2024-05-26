@@ -1,3 +1,14 @@
-image {
-    object-fit: cover;
+.action-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 0px;
+}
+
+.card-container {    
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.card-product {
+    flex: 1;
 }

@@ -1,5 +1,20 @@
-<div class="container">
+<div class="action-container">
+    <a mat-raised-button [routerLink]="['/create-product']">
+        Criar Produto
+    </a>
+</div>
+
+
+<div class="container card-container">
     @for (product of products; track product.id) {
-        <app-card [product]="product"></app-card>
+    <app-card class="card-product" [product]="product"></app-card>
     }
 </div>
+
+<!-- 
+    1- criou um componenete
+
+
+
+
+-->
