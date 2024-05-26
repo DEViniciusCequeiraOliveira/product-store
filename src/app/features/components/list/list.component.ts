@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Product } from '../../../shared/interfaces/product.interface';
+import { ProductsService } from '../../../shared/services/products.service';
 
 @Component({
   selector: 'app-list',
@@ -8,5 +10,14 @@ import { Component } from '@angular/core';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
+  products: Product[] = []
+  
+  productService = inject(ProductsService);
+
+  ngOnInit() {
+    this.productService.getAll().subscribe((products) => {
+      this.products = products
+    })
+  }
 
 }
