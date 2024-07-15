@@ -3,10 +3,14 @@
         <mat-card-title>{{product().title}}</mat-card-title>
         <mat-card-subtitle> R$ {{product().price}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src={{product().image}} alt="Photo of a Shiba Inu">
+    <img mat-card-image class="image" src={{product().image}} alt="Photo of a Shiba Inu">
     <mat-card-content>
-        <p>
+        <p class="text-description">
             {{product().description}}
         </p>
     </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="onEdit()">Editar</button>
+        <button mat-button>Apagar</button>
+    </mat-card-actions>
 </mat-card>

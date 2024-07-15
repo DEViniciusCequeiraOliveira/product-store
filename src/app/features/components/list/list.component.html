@@ -7,14 +7,10 @@
 
 <div class="container card-container">
     @for (product of products; track product.id) {
-    <app-card class="card-product" [product]="product"></app-card>
+        <app-card 
+            class="card-product" 
+            [product]="product" 
+            (edit)="onEdit()">
+        </app-card>
     }
 </div>
-
-<!-- 
-    1- criou um componenete
-
-
-
-
--->

@@ -3,8 +3,10 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { ProductsService } from '../../../shared/services/products.service';
-import { ProductPayload } from '../../../shared/interfaces/product-payload.interface';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-create',
@@ -21,6 +23,8 @@ import { ProductPayload } from '../../../shared/interfaces/product-payload.inter
 export class CreateComponent {
 
   productService = inject(ProductsService);
+  matSnackBar = inject(MatSnackBar);
+  router = inject(Router);
 
   form = new FormGroup({
     title: new FormControl<String>('', {
@@ -47,8 +51,15 @@ export class CreateComponent {
       price: this.form.controls.price.value,
       description: this.form.controls.description.value,
       image: this.form.controls.image.value
-    }).subscribe((e) => {
-      alert('Cadastrado com sucesso!');
+    }).subscribe(() => {
+      this.matSnackBar.open(
+        'Cadastrado com sucesso!',
+        undefined,
+        {
+          duration: 3000
+        });
+
+      this.router.navigateByUrl('/');
     });
   }
 }
